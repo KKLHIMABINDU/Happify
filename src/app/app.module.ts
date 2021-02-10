@@ -37,7 +37,7 @@ import { ZoomComponent } from './zoom/zoom.component';
 
 
 const appRoot: Routes = [
-                        {path:'', component:PsyregisterComponent },
+                        {path:'', component:HomeComponent },
                         {path:'home', component: HomeComponent},
                         {path: 'strategy1', component:Strategy1Component},
                         {path: 'strategy2', component:Strategy2Component},
