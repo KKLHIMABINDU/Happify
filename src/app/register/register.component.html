@@ -1,0 +1,82 @@
+<body>
+<div class="wrapper"  style= "margin-top:50px">
+    <div class="inner">
+
+
+        <fieldset>
+
+            <div class="form1">
+                <form #registerForm="ngForm" (ngSubmit)="register()">
+                    <h3>New Account?</h3>
+
+                    <div style="padding-bottom: 15px;" class="form-class" [class.has-error]="firstName.invalid && firstName.touched">
+                        <span class="control-label"></span>
+                        <input id="firstName" required class="form-control" placeholder="Enter FirstName" name="firstName" [(ngModel)]="user.firstName" #firstName="ngModel">
+                        <span class="help-block" *ngIf="firstName.invalid && firstName.touched">
+                            First Name is required
+                        </span>
+                    </div>
+                    <div style="padding-bottom: 15px;" class="form-class" [class.has-error]="lastName.invalid && lastName.touched">
+                        <span class="control-label"></span>
+                        <input id="lastName" required class="form-control" placeholder="Enter lastName" name="lastName" [(ngModel)]="user.lastName" #lastName="ngModel">
+                        <span class="help-block" *ngIf="lastName.invalid && lastName.touched">
+                            Last Name is required
+                        </span>
+                    </div>
+                    <div style="padding-bottom: 15px;" class="form-class" [class.has-error]="email.invalid && email.touched">
+                        <span class="control-label"></span>
+                        <input id="email" required email type="text" class="form-control" placeholder="Enter Email" name="email" [(ngModel)]="user.email" #email="ngModel">
+                        <span class="help-block" *ngIf="email.errors?.required && email.touched">
+                            Email is required
+                        </span>
+                        <span class="help-block" *ngIf="email.errors?.email && email.touched">
+                            Email is Invalid
+                        </span>
+                    </div>
+
+                    <div style="padding-bottom: 15px;" class="form-class" [class.has-error]="mobileNumber.touched && mobileNumber.invalid">
+                        <span class="control-label"></span>
+                        <input id="mobileNumber" required type="text" placeholder="Enter mobileNumber" class="form-control" name="mobileNumber" [(ngModel)]="user.mobileNumber" #mobileNumber="ngModel">
+                        <span class="help-block" *ngIf="mobileNumber.touched && mobileNumber.errors?.required">
+                            Mobile Number is required
+                        </span>
+                    </div>
+                    <div style="padding-bottom: 15px;" class="form-class" [class.has-error]="password.touched && password.invalid">
+                        <span class="control-label"></span>
+                        <input id="password" required type="password" placeholder="Enter Password" class="form-control" name="password" [(ngModel)]="user.password" #password="ngModel">
+                        <span class="help-block" *ngIf="password.touched && password.errors?.required">
+                            Password is required
+                        </span>
+                    </div>
+                    <div style="padding-bottom: 15px;" class="form-class" [class.has-error]="conPassword.touched && conPassword.invalid">
+                        <span class="control-label"></span>
+                        <input name="conPassword" appConfirmEqualValidator="password" placeholder="Enter Password again" required id="conPassword" type="password" class="form-control" [(ngModel)]="user.conPassword" #conPassword="ngModel">
+                        <span class="help-block" *ngIf="conPassword.touched && conPassword.errors?.required">
+                            Confirm Password is required
+                        </span>
+                        <span class="help-block" *ngIf="conPassword.touched && conPassword.errors?.notEqual &&
+!conPassword.errors?.required">
+                            Password and Confirm Password does not match
+                        </span>
+                    </div>
+                    <div>
+                        <img [src]="imageUrl" style="width:75px;height:75px;margin-left: 10px;margin-right: 10px;margin-top:20px;margin-bottom:-30px">
+                        <input style="margin-left: 80px;" type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
+                        <!--<button type="submit">Upload</button>-->
+                    </div>
+
+
+
+                    <span><button class="btn btn-primary bt1" [disabled]="!registerForm.valid">Register</button>
+                    </span>
+
+                </form>
+            </div>
+            <script src="js/jquery-3.3.1.min.js"></script>
+            <script src="js/main.js"></script>
+
+
+        </fieldset>
+    </div>
+</div>
+</body>

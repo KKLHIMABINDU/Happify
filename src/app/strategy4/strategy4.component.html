@@ -1,0 +1,43 @@
+<body>
+    <section class="info">
+    
+    </section>
+    
+    <section class="cards-wrapper "  style= "margin-top:50px">
+        
+    
+        <div class="col-md-3" *ngFor="let task of tasks">
+            <div class=" card-grid-space">
+                
+                <a class="card align-items-center" style="--bg-color: url(https://i.pinimg.com/474x/fa/46/6f/fa466f2dcbc038aa8e5f2952fab96be0.jpg) ">
+                    <div>
+                        <h1>Day {{task.dayNumber}}</h1>
+                        <p class="card-text ">{{task.taskName}} </p>
+                        
+                        <div class="tags ">
+                            <button class="btn btn-lg btn-primary " [ngClass]="days()" [disabled]="(task.dayNumber != day)" (click)="open(mymodal) ">Open</button>
+    
+    
+                            <ng-template #mymodal let-modal>
+                                <div class="modal-header ">
+                                    <h4 class="modal-title " id="modal-basic-title ">{{task.taskName}}</h4>
+                                    <button type="button " class="close " aria-label="Close " (click)="modal.dismiss( 'Cross click') ">
+                                        <span aria-hidden="true ">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body ">
+                                    {{task.taskDs}}
+                                </div>
+                                <div class="modal-footer ">
+                                
+                                    <button type="button" class="btn btn-outline-dark "ng-disabled="isDisabled" ng-click="isDisabled=true" (click)="actionMethod($event)">Complete</button>
+                                </div>
+                            </ng-template>
+                        </div>
+                    </div>
+                </a>
+            
+            </div>
+        </div>
+    </section>
+     </body> 

@@ -1,0 +1,281 @@
+:root {
+    --color: #3c3163;
+    --transition-time: 0.5s;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Open Sans';
+    background: #0000;
+    font-family: Arial, sans-serif;
+        background: url(http://www.shukatsu-note.com/wp-content/uploads/2014/12/computer-564136_1280.jpg) no-repeat;
+        background-size: cover;
+        height: 150vh;
+    
+}
+
+a {
+    color: inherit;
+}
+
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    padding: 1rem;
+    margin: 0 auto;
+    width: max-content;
+}
+
+.card {
+    font-family: 'Heebo';
+    --bg-filter-opacity: 0.5;
+    background: linear-gradient(60deg, #29323c 0%, #0f6ed3 100%);
+    height: 15em;
+    width: 10em;
+    font-size: 1.5em;
+    color: white;
+    border-radius: 1em;
+    padding: 1em;
+    /*margin: 2em;*/
+    display: flex;
+    align-items: flex-end;
+    background-size: cover;
+    background-position: center;
+    
+    transition: all, var(--transition-time);
+    position: relative;
+    overflow: hidden;
+    border: 10px solid #ccc;
+    text-decoration: none;
+}
+
+.card h1 {
+    margin: 0;
+    font-size: 1.5em;
+    line-height: 1.2em;
+}
+
+.card p {
+    font-size: 0.75em;
+    font-family: 'Open Sans';
+    margin-top: 0.5em;
+    line-height: 2em;
+}
+
+.card .tags {
+    display: flex;
+}
+
+.card .tags .tag {
+    font-size: 0.75em;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 0.3rem;
+    padding: 0 0.5em;
+    margin-right: 0.5em;
+    line-height: 1.5em;
+    transition: all, var(--transition-time);
+}
+
+.card .date {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.75em;
+    padding: 1em;
+    line-height: 1em;
+    opacity: .8;
+}
+
+.card:before,
+.card:after {
+    content: '';
+    transform: scale(0);
+    transform-origin: top left;
+    border-radius: 50%;
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    z-index: -5;
+    transition: all, var(--transition-time);
+    transition-timing-function: ease-in-out;
+}
+
+.card:before {
+    background:crimson;
+    width: 250%;
+    height: 250%;
+}
+
+.card:after {
+    background: white;
+    width: 200%;
+    height: 200%;
+}
+
+.card-grid-space .num {
+    font-size: 3em;
+    margin-bottom: 1.2rem;
+    margin-left: 1rem;
+}
+
+.info {
+    font-size: 1.2em;
+    display: flex;
+    padding: 1em 3em;
+    height: 3em;
+}
+
+.info img {
+    height: 3em;
+    margin-right: 0.5em;
+}
+
+.info h1 {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1285px) {
+    .cards-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .cards-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .info {
+        justify-content: center;
+    }
+    .card-grid-space .num {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .cards-wrapper {
+        padding: 4rem 2rem;
+    }
+    .card {
+        max-width: calc(100vw - 4rem);
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .info {
+        display: block;
+        text-align: center;
+    }
+    .info h1 {
+        margin: 0;
+    }
+}
+
+
+h1,
+p {
+    text-align: center;
+    font-family: Tahoma, Arial, sans-serif;
+    color: white;
+    margin: 80px 0;
+}
+
+.box {
+    width: 40%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 35px;
+    border: 2px solid #fff;
+    border-radius: 20px/50px;
+    background-clip: padding-box;
+    text-align: center;
+}
+
+.button {
+    font-size: 1em;
+    padding: 10px;
+    color: #fff;
+    border: 2px solid crimson;
+    border-radius: 20px/50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.button:hover {
+    background: crimson;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: crimson;
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 70%;
+    }
+    .popup {
+        width: 70%;
+    }
+    
+}

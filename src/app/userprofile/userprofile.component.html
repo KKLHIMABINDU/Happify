@@ -1,0 +1,92 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body>
+
+
+
+
+
+
+
+<div class="container">
+  <div class="modal fade" id="userModel">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <span class="close" data-dismiss="modal">&times;</span>
+                  <h4 class="modal-title">Update Form</h4>
+              </div>
+              <div class="modal-body">
+                  <form class="form-group">
+                      Enter First Name: <input type="text" name="firstName" [(ngModel)]="editObject.firstName"
+                          class="form-control"><br />
+                      Enter Last Name: <input type="text" name="lastName" [(ngModel)]="editObject.lastName"
+                          class="form-control"><br />
+                      Enter Email: <input type="text" name="email" [(ngModel)]="editObject.email"
+                          class="form-control"><br />
+                      Enter Mobile number: <input type="text" name="mobileNumber" [(ngModel)]="editObject.mobileNumber"
+                          class="form-control"><br />
+                  </form>
+              </div>
+              <div class="modal-footer">
+                  <button class="btn btn-primary btn-sm" (click)="updateuser()" data-dismiss="modal">Update</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!--<img class="card-img-top" src="http://localhost:8080/api/images/{{user.ImageName}}" alt="Card image cap" />-->
+ 
+
+<div class="bccolor page-content page-container " id="page-content">
+  <div class="padding">
+      <div class="pad row container d-flex justify-content-center">
+          <div class="col-xl-6 col-md-12">
+              <div class="card user-card-full">
+                  <div class="row m-l-0 m-r-0">
+                      <div class="col-sm-4 bg-c-lite-green user-profile">
+                          <div class="card-block text-center text-white">
+                              <div class="m-b-25"> <img src="http://localhost:8080/api/images/{{user.ImageName}}"  class="img-radius" alt="User-Profile-Image"> </div>
+                              <h5 class="f-w-600">{{user.firstName}}</h5>
+                          </div>
+                      </div>
+                      <div class="col-sm-8 colorblock">
+                          <div class="card-block">
+                              <h5 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h5>
+                              <div class="row">
+                                  <div class="col-sm-6">
+                                      <p class="m-b-10 f-w-600">Email</p>
+                                      <h6 class="text-muted f-w-400">{{user.email}}</h6>
+                                  </div>
+                                  <div class="col-sm-6">
+                                      <p class="m-b-10 f-w-600">Phone</p>
+                                      <h6 class="text-muted f-w-400">{{user.mobileNumber}}</h6>
+                                  </div>
+                              </div>
+                              <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Activity</h5>
+                              <div class="row">
+                                  <div class="col-sm-6">
+                                      <p class="m-b-10 f-w-600">Score</p>
+                                      <h6 class="text-muted f-w-400">{{user.count1+user.count2+user.count3+user.count4}}</h6>
+                                  </div>
+                                  <div class="col-sm-6">
+                                      <p class="m-b-10 f-w-600">Consultations</p>
+                                      <h6 class="text-muted f-w-400">{{user.noOfConsultations}}</h6>
+                                  </div>
+                                  
+                              </div>
+                              <button  (click)="showEditPopup(user)" class="glyphicon glyphicon-pencil edit " >
+                                </button>
+                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+</body>

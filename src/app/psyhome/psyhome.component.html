@@ -1,0 +1,45 @@
+<div class="limiter">
+    <div class="container-table100">
+        <div style="margin-top: 25px;" class="wrap-table100">
+            <div class="table100 ver1 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                            <tr class="row100 head">
+
+                                <th class="cell100 column1">Name</th>
+                                <th class="cell100 column1">Email</th>
+                                <th class="cell100 column1">Date</th>
+                                <th class="cell100 column4">Time</th>
+                                <th class="cell100 column4">Problem</th>
+                                <th style="margin-left: -30px;" class="cell100 column6">Status</th>
+                            </tr>
+
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+                            <tr class="row100 body" *ngFor="let c of consult ">
+                                <td class="cell100 column1">{{ c.fullName }}</td>
+                                <td class="cell100 column1">{{c.email}} </td>
+                                <td class="cell100 column1">{{c.consultationDate}}</td>
+                                <td class="cell100 column4">{{c.consultationTime}}</td>
+                                <td class="cell100 column4">{{c.problem}}</td>
+                                <td class="cell100 column6"><button class="btn btn-primary " style="margin-right: 20px;" (click)="updateconsult(c) ">Accept </button>
+                                    <button class="btn btn-danger " (click)="deleteconsult(c) ">Decline</button>
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

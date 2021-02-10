@@ -1,0 +1,114 @@
+<body>
+<div class="wrapper"  style= "margin-top:50px">
+    <div class="inner">
+
+        <fieldset>
+
+            <div class="form1">
+
+                <form #registerForm="ngForm" (ngSubmit)="register()">
+                    <h3>New Account?</h3>
+                    <div style="padding-bottom: 15px;" class="form-class"
+                        [class.has-error]="psyName.invalid && psyName.touched">
+                        <span class="control-label"></span>
+                        <input id="psyName" required class="form-control" placeholder="Enter Name" name="psyName"
+                            [(ngModel)]="psy.psyName" #psyName="ngModel">
+                        <span class="help-block" *ngIf="psyName.invalid && psyName.touched">
+                            Name is required
+                        </span>
+                    </div>
+                    <div style="padding-bottom: 15px;" class="form-class"
+                        [class.has-error]="psyEmail.invalid && psyEmail.touched">
+                        <span class="control-label"></span>
+                        <input id="psyEmail" required psyEmail type="email" class="form-control"
+                            placeholder="Enter Email" name="psyEmail" [(ngModel)]="psy.psyEmail" #psyEmail="ngModel">
+                        <span class="help-block" *ngIf="psyEmail.errors?.required && psyEmail.touched">
+                            Email is required
+                        </span>
+                        <span class="help-block" *ngIf="psyEmail.errors?.psyEmail && psyEmail.touched">
+                            Email is Invalid
+                        </span>
+
+                    </div>
+                    <div style="padding-bottom: 15px;" class="form-class"
+                        [class.has-error]="psyMobileNumber.touched && psyMobileNumber.invalid">
+                        <span class="control-label"></span>
+                        <input id="psyMobileNumber" required type="text" placeholder="Enter MobileNumber"
+                            class="form-control" name="psyMobileNumber" [(ngModel)]="psy.psyMobileNumber"
+                            #psyMobileNumber="ngModel">
+                        <span class="help-block" *ngIf="psyMobileNumber.touched && psyMobileNumber.errors?.required">
+                            Mobile Number is required
+                        </span>
+                    </div>
+
+
+                    <div style="padding-bottom: 15px;" class="form-group">
+                        <label for="desig"></label>
+                        <select id="psyEdu" name="psyGender" [(ngModel)]="psy.psyGender" #psyGender="ngModel"
+                            class="form-control">
+                            <option  hidden value="" disabled selected>select gender</option>
+
+                            <option  *ngFor="let d of gender" [value]="d.name">
+                                {{d.name}}
+                            </option>
+                        </select>
+
+                    </div>
+                    <div style="padding-bottom: 15px;" class="form-group">
+                        <label for="desig"></label>
+                        <select id="psyEdu" name="psyEdu" [(ngModel)]="psy.psyEdu" #psyEdu="ngModel"
+                            class="form-control">
+                            <option hidden value="" disabled selected>Select Your Qualification</option>
+
+                            <option *ngFor="let d of desig" [value]="d.name">
+                                {{d.name}}
+                            </option>
+                        </select>
+
+                    </div>
+                    <div style="padding-bottom: 15px;" class="form-class"
+                        [class.has-error]="psyPassword.touched && psyPassword.invalid">
+                        <span class="control-label"></span>
+                        <input id="psyPassword" required type="password" placeholder="Enter Password"
+                            class="form-control" name="psyPassword" [(ngModel)]="psy.psyPassword"
+                            #psyPassword="ngModel">
+                        <span class="help-block" *ngIf="psyPassword.touched && psyPassword.errors?.required">
+                            Password is required
+                        </span>
+                    </div>
+                    <div style="padding-bottom: 15px;" class="form-class"
+                        [class.has-error]="psyconPassword.touched && psyconPassword.invalid">
+                        <span class="control-label"></span>
+                        <input name="psyconPassword" appConfirmEqualValidator="psyPassword"
+                            placeholder="Enter Password again" required id="psyconPassword" type="password"
+                            class="form-control" [(ngModel)]="psy.psyconPassword" #psyconPassword="ngModel">
+                        <span class="help-block" *ngIf="psyconPassword.touched && psyconPassword.errors?.required">
+                            Confirm Password is required
+                        </span>
+                        <span class="help-block" *ngIf="psyconPassword.touched && psyconPassword.errors?.notEqual &&
+          !psyconPassword.errors?.required">
+                            Password and Confirm Password does not match
+                        </span>
+                        <div>
+                            <img [src]="imageUrl" style="width:75px;height:75px;margin-left: 10px;margin-top:20px;margin-right: 10px;margin-bottom:-30px;">
+                            <input style="margin-left: 80px;" type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
+                            <!--<button type="submit">Upload</button>-->
+                        </div>
+                       
+                    </div>
+                    <span><button class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+                    </span>
+
+
+                </form>
+
+
+            </div>
+            <script src="js/jquery-3.3.1.min.js"></script>
+            <script src="js/main.js"></script>
+
+
+        </fieldset>
+    </div>
+    </div>
+    </body>

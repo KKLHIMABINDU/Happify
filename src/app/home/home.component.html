@@ -1,0 +1,316 @@
+<head>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<!-- Topic Cards -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<section id="hero">
+    <div class="hero container">
+        <div>
+            <h1>Welcome, <span></span></h1>
+            <h1>To our Website<span></span></h1>
+            <h1>{{user.firstName}} <span></span></h1>
+
+            <a href="#services" type="button" class="cta">Get Started</a>
+        </div>
+    </div>
+</section>
+<!-- End Hero Section  -->
+
+<!-- Service Section -->
+
+<section id="services">
+    <div class="services container">
+        <div class="service-top">
+            <h1 class="section-title">Stra<span>te</span>gies</h1>
+            <p class = "grp"><b>The main objective of the project ‘Happify’ is to transform the user with increased mental health, provide relaxation, lower anxiety and depression levels, increase his/her confidence, enhance immune system, etc.., by providing some tasks and exercises to user depending on the strategy which they choose.</b></p>
+        </div>
+
+        <div class="service-bottom">
+            <div class="service-item">
+
+                <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
+                <h3 style="align-items: center;color: white;"><b>Focus</b></h3>
+                
+
+                <ng-template #mymodal1 let-modal>
+                    <div class="modal-header ">
+                        <h4 class="modal-title " id="modal-basic-title ">Hey {{user.firstName}}</h4>
+                        <button type="button " class="close " aria-label="Close "
+                            (click)="modal.dismiss( 'Cross click') ">
+                            <span aria-hidden="true ">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body ">
+                        Do you want to Enroll in this course?
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="button" class="btn btn-outline-dark " (click)="actionMethod1()">Yes</button>
+                        <button type="button" class="btn btn-outline-dark ">No</button>
+
+                    </div>
+                </ng-template>
+                <p class="para">Does Ur brain go for a world tour every time,when it has to stay and concentrate in a particular
+                    aspect??then this can be a best fit for u to increase concentration and to put Ur mind stable mentel
+                    sanity for vital well being </p>
+                    <button *ngIf="user.strategyenrolled1" routerLink="strategy1" class = "open str">Focus</button>
+                <button *ngIf="!(user.strategyenrolled1) " class="btn btn-lg btn-primary open"
+                    (click)="open(mymodal1) ">Open</button>
+
+            </div>
+            <div class="service-item">
+
+                <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
+                <h3 style="align-items: center;color: white;"><b>Self Control</b></h3>
+
+                <ng-template #mymodal2 let-modal>
+                    <div class="modal-header modal-primary">
+                        <h4 class="modal-title " id="modal-basic-title ">Hey {{user.firstName}}</h4>
+                        <button type="button " class="close " aria-label="Close "
+                            (click)="modal.dismiss( 'Cross click') ">
+                            <span aria-hidden="true ">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body ">
+                        Do you want to Enroll in this course?
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="button" class="btn btn-outline-dark " (click)="actionMethod2()">Yes</button>
+                        <button type="button" class="btn btn-outline-dark ">No</button>
+
+                    </div>
+                </ng-template>
+                <p class = "para">Does your behaviour and emotions remembers you of puppetry.where you are being puppet in the hands of
+                    external person and ever wanted to be a free bird???..try this course to be a star of your own
+                    galaxy</p>
+                    <button *ngIf="user.strategyenrolled2" routerLink="strategy2"  class = "open str" >Self Control</button>
+                    <button *ngIf="!(user.strategyenrolled2)" class="btn btn-lg btn-primary open "
+                        (click)="open(mymodal2) ">Open</button>
+    
+            </div>
+            <div class="service-item">
+
+                <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
+                <h3 style="align-items: center;color: white;"><b>Self-Relief</b></h3>
+
+                <ng-template #mymodal3 let-modal>
+                    <div class="modal-header ">
+                        <h4 class="modal-title " id="modal-basic-title ">Hey {{user.firstName}}</h4>
+                        <button type="button " class="close " aria-label="Close "
+                            (click)="modal.dismiss( 'Cross click') ">
+                            <span aria-hidden="true ">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body ">
+                        Do you want to Enroll in this course?
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="button" class="btn btn-outline-dark " (click)="actionMethod3()">Yes</button>
+                        <button type="button" class="btn btn-outline-dark ">No</button>
+
+                    </div>
+                </ng-template>
+                <p class="para">Are you a kind of person who gets exhausted so quick??do you find yourself as an article under jolt
+                    squeeze molding machine all the time??..And wanted to get ease with urself then join this coursetry course to be a star of your own
+                    galaxy</p>
+                    <button *ngIf="user.strategyenrolled3" routerLink="strategy3"  class = "open str" >Self-Relief</button>
+                    <button *ngIf="!(user.strategyenrolled3)" class="btn btn-lg btn-primary  open"
+                        (click)="open(mymodal3) ">Open</button>
+    
+            </div>
+            <div class="service-item">
+
+                <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
+                <h3 style="align-items: center;color: white;"><b>Positivity</b></h3>
+
+                <ng-template #mymodal4 let-modal>
+                    <div class="modal-header ">
+                        <h4 class="modal-title " id="modal-basic-title ">Hey {{user.firstName}}</h4>
+                        <button type="button " class="close " aria-label="Close "
+                            (click)="modal.dismiss( 'Cross click') ">
+                            <span aria-hidden="true ">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body ">
+                        Do you want to Enroll in this course?
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="button" class="btn btn-outline-dark " (click)="actionMethod4()">Yes</button>
+                        <button type="button" class="btn btn-outline-dark ">No</button>
+
+                    </div>
+                </ng-template>
+                <p class="para">Maths is always fun with positive integers,difficult arises with arrival of negative integers..why
+                    let negitivity spoil all goodness in us??join this course to embrace yourself with positive attitude
+                    towards life.</p>
+                    <button *ngIf="user.strategyenrolled4" routerLink="strategy4"  class = "open str" >Postivity</button>
+                    <button *ngIf="!(user.strategyenrolled4)" class="btn btn-lg btn-primary open "
+                        (click)="open(mymodal4) ">Open</button>
+    
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Service Section -->
+
+<!-- Projects Section -->
+
+<!-- End Projects Section -->
+
+<!-- About Section -->
+<section id="about">
+    <div class="about container">
+        <div class="col-left">
+            <div class="about-img">
+                <img src="/assets/images/abt.jpeg" alt="img">
+            </div>
+        </div>
+        <div class="col-right">
+            <h1 class="section-title">About <span>US</span></h1>
+            <h2>Happify</h2>
+            <p class = "grp"><b>“Give your stress wings and let it fly away.” —Terri Guillemets Wondering how to give wings to your
+                stress... Being physically fit can help Us live long..what about mental fitness to succeed long way??
+                Happify..solution for all your mental
+                imbalance.. A perfect nutritionist to maintain perfect mental balance ... A gym coach can constantly
+                minister your progress rate and to provide solution to your mental illness... Embark to destine for a
+                happy and serine life.. beatify
+                your soul and life with happify...join now</b></p>
+            <a href="#" class="cta">Know More</a>
+        </div>
+    </div>
+</section>
+<!-- End About Section -->
+
+<div class = "head">
+<h1 class = "head" >Our users testimonials</h1>
+<h6>click on the images to view</h6>
+</div>
+<div style="margin-left: 300px;">
+<div class="row">
+
+    <div *ngFor="let b of blogs;let i =index">
+        <div *ngIf="i==blogs.length -3">
+            <div class="col-25">
+                <div class="tp-wrapper">
+                    <div class="tp-box" (click)="toggleFlip1()" [@flipState]="flip1">
+
+                        <div class="tp-box__side tp-box__front"><img
+                                src="http://localhost:8080/api/images/{{b.user.ImageName}}" class="rounded">
+                                <span><h3>{{b.user.firstName}}</h3></span>
+                        </div>
+                        <div class="tp-box__side tp-box__back">{{b.postContent}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-25">
+            <div *ngIf="i==blogs.length -2">
+
+                <div class="tp-wrapper">
+                    <div class="tp-box" (click)="toggleFlip2()" [@flipState]="flip2">
+                        <div class="tp-box__side tp-box__front"><img
+                            src="http://localhost:8080/api/images/{{b.user.ImageName}}" class="rounded">
+                        <span><h3>{{b.user.firstName}}</h3></span>
+                    </div>
+                        <div class="tp-box__side tp-box__back">{{b.postContent}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-25">
+            <div *ngIf="i==blogs.length -1">
+
+                <div class="tp-wrapper">
+                    <div class="tp-box" (click)="toggleFlip3()" [@flipState]="flip3">
+                        <div class="tp-box__side tp-box__front"><img
+                            src="http://localhost:8080/api/images/{{b.user.ImageName}}" class="rounded">
+                        <span><h3>{{b.user.firstName}}</h3></span>
+                    </div>
+                        <div class="tp-box__side tp-box__back">{{b.postContent}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<!--Grid row-->
+
+<!-- Contact Section -->
+<section id="contact">
+    <div class="contact container">
+        <div>
+            <h1 class="section-title">Contact <span>info</span></h1>
+        </div>
+        <div class="contact-items">
+            <div class="contact-item">
+                <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/phone.png" /></div>
+                <div class="contact-info">
+                    <h1>Phone</h1>
+                    <h2>9876543210</h2>
+                    <h2>9123456780</h2>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQScshqV9p7aTTPq771sk8JLq5IWgcmpO-HsQ&usqp=CAU" /></div>
+                <div class="contact-info">
+                    <h1>Feedback</h1>
+                    <div style="margin-left: -10px;" class="col-md-3">
+                        <form #contentForm="ngForm" (ngSubmit)="comment()">
+                            <div style="padding-bottom: 15px;" class="form-class">
+                                <span class="control-label"></span>
+                                <input id="postContent" required placeholder="write here" name="postContent" [(ngModel)]="blog.postContent" #postContent="ngModel">
+
+                            </div>
+                            <span><button class="btn btn-primary open" style="left:80%" >Post</button>
+                            </span>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/new-post.png" /></div>
+                <div class="contact-info">
+                    <h1>Email</h1>
+                    <h2>info@happify.com</h2>
+                    <h2>happify@gmail.com</h2>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- End Contact Section -->
+
+<!-- Footer -->
+<section id="footer">
+    <div class="footer container">
+        <div class="brand">
+            <h1><span>H</span>appify <span>W</span>ebsite</h1>
+        </div>
+        <h2>Your Complete Web Solution</h2>
+        <div class="social-icon">
+            <div class="social-item">
+                <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png" /></a>
+            </div>
+            <div class="social-item">
+                <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/instagram-new.png" /></a>
+            </div>
+            <div class="social-item">
+                <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/twitter.png" /></a>
+            </div>
+            <div class="social-item">
+                <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/behance.png" /></a>
+            </div>
+        </div>
+        <p>Copyright © 2020 Happify. All rights reserved</p>
+    </div>
+</section>

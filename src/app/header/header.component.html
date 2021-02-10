@@ -1,0 +1,76 @@
+<section id="header">
+    <div class="header container">
+        <div class="nav-bar">
+            <div class="brand">
+                <a routerLink="strategy2">
+                    <h1><span>Happify</span></h1>
+                </a>
+            </div>
+            <div class="nav-list">
+                <div class="hamburger ">
+                    <div class="bar"></div>
+                </div>
+                <ul navbar-nav mr-auto>
+
+
+
+
+
+                    <li>
+                        <a *ngIf="!(service.isUserLogged || service1.isPsyLogged)" class="nav-link dropdown-toggle "
+                            href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Login
+                        </a>
+                        <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+
+                            <a class="dropdown-item" routerLink="login"> User Login</a>
+
+                            <a class="dropdown-item" routerLink="psylogin"> Psy Login</a>
+
+                        </div>
+
+                    </li>
+                    <li>
+                        <a *ngIf="!(service.isUserLogged || service1.isPsyLogged)" class="nav-link dropdown-toggle"
+                            href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Register
+                        </a>
+                        <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+
+                            <a class="dropdown-item" routerLink="register"> User Register</a>
+
+                            <a class="dropdown-item" routerLink="psyregister"> Psy Register</a>
+                        </div>
+
+                    </li>
+
+                    <li>
+                        <a *ngIf="service.isUserLogged" routerLink="home">Home</a>
+                        <a  *ngIf="service1.isPsyLogged" routerLink="psyhome">Home</a>
+                    </li>
+                    <li>
+                        <a *ngIf="service.isUserLogged" routerLink="userprofile">Profile</a>
+                    </li>
+                    <li>
+                        <a *ngIf="service.isUserLogged" routerLink="psyprofile">Consult</a>
+                    </li>
+                    <li>
+                        <a *ngIf="service1.isPsyLogged" routerLink="useraccept">Accepted</a>
+                    </li>
+                    <li>
+                        <a *ngIf="service1.isPsyLogged" routerLink="complete">Completed</a>
+                    </li>
+                    
+
+                    <li class="nav-left-item">
+                        <a class="nav-link "(click)="onLogout($event)"
+                            *ngIf="service.isUserLogged || service1.isPsyLogged">Logout</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

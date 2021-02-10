@@ -1,0 +1,22 @@
+<body>
+<section class="cards-wrapper" style="margin-top: 100px;">
+    <div class="col-md-3" *ngFor="let p of psy">
+        <div class="card">
+            <div  class="card-background ">
+
+                <img src="http://localhost:8080/api/images/{{p.ImageName}}" alt = "No profile" class="card-image ">
+
+            </div>
+            <div class="card-info ">
+
+                <h1>{{p.psyName}}</h1>
+
+                <p>{{p.psyEdu}}</p>
+                <p>{{p.psyEmail}}</p>
+                <button class="btn btn-primary " (click)="gotoconsultation(p)">Consult</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+</body>

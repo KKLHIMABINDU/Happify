@@ -1,0 +1,79 @@
+<div class="wrapper">
+    <div class="inner">
+        
+
+        <fieldset>
+
+            <div class="form1">
+
+                <form #loginForm="ngForm" class="form-group" (ngSubmit)="loginSubmit(loginForm.value)" novalidate>
+
+                    <h3>Psychiatrist to your Account</h3>
+                    <div class="form-holder">
+                        <span class="lnr lnr-user"></span>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" style="font-size:15px;" name="loginId" ngModel #loginId="ngModel" required maxlength=30 minlength=4 placeholder="login id"><br
+                        />
+                    </div>
+
+                    <div class="form-holder">
+                        <span class="lnr lnr-user"></span>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" class="form-control" style="font-size:15px;" name="password" ngModel required #password="ngModel" maxlength=10 minlength=3 placeholder="password"><br />
+                    </div>
+                    <div class="text-danger" style="font-size:15px;">
+                        <div *ngIf="loginForm.touched && loginId.errors?.required">Please enter login id</div>
+                        <div *ngIf="loginForm.touched && password.errors?.required">Please enter password</div>
+                        <div *ngIf="loginForm.touched && loginId.errors?.minlength">Please enter min 4 chars </div>
+                        <div *ngIf="loginForm.touched && password.errors?.minlength">Please enter min 4 chars </div>
+                    </div>
+
+                    <button class="button1">
+            <span>login</span>
+          </button>
+                    <h4 class="signup" (click)="gotoregistration()">Don't have an account? Register</h4>
+
+                    <div class="form-holder">
+                        <span class="lnr lnr-user"></span>
+                        <!--<button class="login-Btn" #registerRef>
+            Login with Google<img class="social-btn-icon" alt="Register with Google" src="https://hrcdn.net/fcore/assets/google-colored-20b8216731.svg">
+          </button>
+          <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>-->
+
+
+                        <!--<div class="row">
+                  <div class="col-md-4">-->
+
+                        <button class="btn btn-outline-light" #loginRef style="padding-left:100px;padding-right: 150px;margin-top:30px;">
+                      <img width="25px" style="margin:5px;" alt="Google sign-in"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                      Login with Google
+                    </button>
+                        <!-- </div>
+
+                </div>-->
+
+                    </div>
+
+
+                    <!--<img src="/assets/images/img-2.png" alt="" class="image-2">-->
+
+                </form>
+
+
+
+                <!-- <div class="container mt-5">
+            <h2 class = "signup">Google Login</h2>
+                <div class="row mt-5">
+                  <div class="col-md-4 mt-2 m-auto ">
+                        <button class="login-Btn" #loginRef>
+                          <img class="social-btn-icon" alt="Login with Google" src="https://hrcdn.net/fcore/assets/google-colored-20b8216731.svg">
+                        </button>
+                  </div>   
+                </div>
+               
+              </div>-->
+
+
+
+
+            </div>

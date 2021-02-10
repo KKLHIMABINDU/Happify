@@ -1,0 +1,109 @@
+<div class="wrapper" >
+    <div class="inner">
+
+        <fieldset>
+            <section style="margin-left: -300px; margin-top: 30px;">
+                <div class="col-md-2">
+
+                    <div style="margin-top: 100px;" class="card">
+                        <div class="card-background ">
+
+                            <img img src="http://localhost:8080/api/images/{{psy.ImageName}}" class="card-image ">
+
+                        </div>
+                        <div class="card-info ">
+
+                            <h1>{{psy.psyName}}</h1>
+
+                            <p>{{psy.psyEdu}}</p>
+                            <p>{{psy.psyEmail}}</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <div class="form1"  style= "margin-top:50px">
+
+                <form #consultForm="ngForm" (ngSubmit)="consultform()">
+                    <h3 style="color: white;">Consultation form</h3>
+                    <div style="padding-bottom: 15px;" class="form-class" [class.has-error]="fullName.invalid && fullName.touched">
+                        <span class="control-label"></span>
+                        <input id="fullName" required class="form-control" placeholder="Enter Name" name="fullName" [(ngModel)]="consult.fullName" #fullName="ngModel">
+                        <span class="help-block" *ngIf="fullName.invalid && fullName.touched">
+                            Name is required
+                        </span>
+                    </div>
+                    <div style="padding-bottom: 15px;" class="form-class" [class.has-error]="email.invalid && email.touched">
+                        <span class="control-label"></span>
+                        <input id="email" required email type="email" class="form-control" placeholder="Enter Email" name="email" [(ngModel)]="consult.email" #email="ngModel">
+                        <span class="help-block" *ngIf="email.errors?.required && email.touched">
+                            Email is required
+                        </span>
+                        <span class="help-block" *ngIf="email.errors?.email && email.touched">
+                            Email is Invalid
+                        </span>
+
+                    </div>
+                    <div style="padding-bottom: 15px;" class="form-class" [class.has-error]="mobileNumber.touched && mobileNumber.invalid">
+                        <span class="control-label"></span>
+                        <input id="mobileNumber" required type="text" placeholder="Enter MobileNumber" class="form-control" name="mobileNumber" [(ngModel)]="consult.mobileNumber" #mobileNumber="ngModel">
+                        <span class="help-block" *ngIf="mobileNumber.touched && mobileNumber.errors?.required">
+                            Mobile Number is required
+                        </span>
+                    </div>
+                    <div style="padding-bottom: 15px;" class="form-group">
+                        <label for="gender"></label>
+                        <select id="gender" type="text" name="gender" class="form-control" [(ngModel)]="consult.gender" #gender="ngModel">
+                            <div style="padding-bottom: 15px;" class="form-group">
+                        <label for="aon"></label></div>
+                            <option  hidden value="" disabled selected>Select your gender</option>
+
+                    
+                    
+
+                            <option value="MALE">MALE</option>
+                            <option value="FEMALE">FEMALE</option>
+                        </select>
+                    </div>
+
+                    
+
+
+
+                    <div style="padding-bottom: 15px;" class="form-class" [class.has-error]="consultationDate.touched && consultationDate.invalid">
+                        <span class="control-label"></span>
+                        <input id="consultationDate" required type="date" placeholder="Enter consultationDate" class="form-control" name="consultationDate" [(ngModel)]="consult.consultationDate" #consultationDate="ngModel">
+                        <span class="help-block" *ngIf="consultationDate.touched && consultationDate.errors?.required">
+                            consultationDate is required
+                        </span>
+                    </div>
+                    <div style="padding-bottom: 15px;" class="form-class" [class.has-error]="consultationTime.touched && consultationTime.invalid">
+                        <span class="control-label"></span>
+                        <input id="consultationTime" required type="time" placeholder="Enter consultationTime" class="form-control" name="consultationTime" [(ngModel)]="consult.consultationTime" #consultationTime="ngModel">
+                        <span class="help-block" *ngIf="consultationTime.touched && consultationTime.errors?.required">
+                            consultationTime is required
+                        </span>
+                    </div>
+
+                    <input id="problem" required type="problem" placeholder="Enter problem" class="form-control" name="problem" [(ngModel)]="consult.problem" #problem="ngModel">
+                    <span class="help-block" *ngIf="problem.touched && problem.errors?.required">
+                        problem is required
+                    </span>
+                    <span><button class="btn btn-primary" [disabled]="!consultForm.valid">Consult</button>
+                    </span>
+                </form>
+            </div>
+
+
+
+
+
+            <script src="js/jquery-3.3.1.min.js"></script>
+            <script src="js/main.js"></script>
+
+
+        </fieldset>
+    </div>
+</div>
